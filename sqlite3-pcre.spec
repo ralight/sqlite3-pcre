@@ -12,7 +12,7 @@ Source: %name-%version.tar
 BuildRequires: libpcre-devel libsqlite3-devel sqlite3
 
 %description
-This SQLite loadable extensing enables the REGEXP operator,
+This SQLite loadable extension enables the REGEXP operator,
 which is not implemented by default, to call PCRE routines
 for regular expression matching.
 
