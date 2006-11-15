@@ -73,13 +73,14 @@ void regexp(sqlite3_context *ctx, int argc, sqlite3_value **argv)
 		pcre_free(c.e);
 		return;
 	    }
-	    if (cache[CACHE_SIZE-1].s) {
-		free(cache[CACHE_SIZE-1].s);
-		assert(cache[CACHE_SIZE-1].p);
-		pcre_free(cache[CACHE_SIZE-1].p);
-		pcre_free(cache[CACHE_SIZE-1].e);
+	    i = CACHE_SIZE - 1;
+	    if (cache[i].s) {
+		free(cache[i].s);
+		assert(cache[i].p);
+		pcre_free(cache[i].p);
+		pcre_free(cache[i].e);
 	    }
-	    memmove(cache + 1, cache, (CACHE_SIZE - 1) * sizeof(cache_entry));
+	    memmove(cache + 1, cache, i * sizeof(cache_entry));
 	    cache[0] = c;
 	}
 	p = cache[0].p;
