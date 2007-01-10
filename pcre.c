@@ -19,7 +19,9 @@ typedef struct {
     pcre_extra *e;
 } cache_entry;
 
+#ifndef CACHE_SIZE
 #define CACHE_SIZE 16
+#endif
 
 static
 void regexp(sqlite3_context *ctx, int argc, sqlite3_value **argv)
