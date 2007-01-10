@@ -5,6 +5,7 @@ Release: alt1
 Summary: Perl-compatible regular expression support for the SQLite
 License: Public Domain
 Group: Databases
+URL: http://git.altlinux.org/people/at/packages/?p=sqlite3-pcre.git
 
 Source: %name-%version.tar
 
