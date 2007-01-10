@@ -3,7 +3,7 @@ Version: 0.1
 Release: alt1
 
 Summary: Perl-compatible regular expression support for the SQLite
-License: XXX (GPL or Public Domain)
+License: Public Domain
 Group: Databases
 
 Source: %name-%version.tar
