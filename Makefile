@@ -15,7 +15,7 @@ install : pcre.so
 
 dist : clean
 	mkdir sqlite3-pcre-${VERSION}
-	cp -f pcre.c Makefile sqlite3-pcre-${VERSION}
+	cp -f pcre.c Makefile readme.txt sqlite3-pcre-${VERSION}
 	tar -czf sqlite3-pcre-${VERSION}.tar.gz sqlite3-pcre-${VERSION}
 
 clean :
