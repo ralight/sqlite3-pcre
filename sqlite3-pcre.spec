@@ -1,13 +1,13 @@
 Name: sqlite3-pcre
-Version: 0.1
-Release: alt1
+Version: 0.1.1
+Release: 0
 
 Summary: Perl-compatible regular expression support for the SQLite
 License: Public Domain
 Group: Databases
 URL: http://git.altlinux.org/people/at/packages/?p=sqlite3-pcre.git
 
-Source: %name-%version.tar
+Source: %name-%version.tar.gz
 
 %if %{defined suse_version}
 Requires: libsqlite3 >= 3.3.8 libpcre0
@@ -28,9 +28,7 @@ for regular expression matching.
 %setup -q
 
 %build
-cflags=`pkg-config --cflags sqlite3 libpcre`
-libs=`pkg-config --libs sqlite3 libpcre`
-gcc -shared -o pcre.so $cflags %optflags %optflags_shared -W -Werror pcre.c $libs -Wl,-z,defs
+make 
 
 #check
 sqlite3 >out <<EOF
@@ -40,7 +38,7 @@ EOF
 grep 1 out
 
 %install
-install -pD -m755 pcre.so %buildroot%_libdir/sqlite3/pcre.so
+make DESTDIR=%buildroot%_libdir install
 
 %files
 %dir %_libdir/sqlite3
