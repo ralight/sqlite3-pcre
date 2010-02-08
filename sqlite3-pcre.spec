@@ -9,15 +9,20 @@ URL: http://git.altlinux.org/people/at/packages/?p=sqlite3-pcre.git
 
 Source: %name-%version.tar.gz
 
-%if %{defined suse_version}
-Requires: libsqlite3 >= 3.3.8 libpcre0
-BuildRequires: pcre-devel sqlite3-devel sqlite3
-%endif
+Requires: libsqlite3 >= 3.3.8-alt2
 
-%if %{defined fedora} || %{defined mdkversion}
-Requires: libsqlite >= 3.3.8 libpcre0
-BuildRequires: pcre-devel sqlite-devel sqlite
-%endif
+# Automatically added by buildreq on Thu Nov 02 2006
+BuildRequires: libpcre-devel libsqlite3-devel sqlite3
+
+#%if %{defined suse_version}
+#Requires: libsqlite3 >= 3.3.8 libpcre0
+#BuildRequires: pcre-devel sqlite3-devel sqlite3
+#%endif
+
+#%if %{defined fedora} || %{defined mdkversion}
+#Requires: libsqlite >= 3.3.8 libpcre0
+#BuildRequires: pcre-devel sqlite-devel sqlite
+#%endif
 
 %description
 This SQLite loadable extension enables the REGEXP operator,
